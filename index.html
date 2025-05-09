@@ -5,7 +5,7 @@
     <style>
         @font-face {
             font-family: 'Jameel Noori Nastaleeq';
-            src: url('Jameel-Noori-Nastaleeq.ttf'); /* Ensure font file is available */
+            src: url('Jameel-Noori-Nastaleeq.ttf');
         }
 
         body {
@@ -79,7 +79,7 @@
         function loadData() {
             let savedData = JSON.parse(localStorage.getItem("savedTableData")) || [];
             let table = document.getElementById("dataTable");
-            table.innerHTML = ""; // Clear table before reloading saved data
+            table.innerHTML = "";
 
             let mouzaNames = [
                 "Amanapur", "Bakhuwala", "Baware", "Bhoonawali", "Chak Mansoor Khan", "Dandi", "Dhak Arazi", "Dhboola", "Dhok Anyiat", 
@@ -90,7 +90,7 @@
                 "Pirani", "Rakh Aziz Khan", "Rakh Dhok Meela", "Rakh Jangla Utran", "Rakh Mera Nilhad", "Rakh Nakah Kalan", 
                 "Rakh Sulkhan Singh", "Rakh Tanwieen", "Ratryian", "Rawal", "Sarwai", "Shahbazpur", "Sipyala", "Sohal", 
                 "Sohal Kamryiala", "Sorra", "Surag", "Tanwieen", "Thati Chah", "Thati Kalra", "Thati Noor Ahmad Shah", 
-                "Thati Saad.O.Shah", "Tilkana", "New Mauza"
+                "Thati Saad.O.Shah", "Tilkana"
             ];
 
             mouzaNames.forEach((name, index) => {
@@ -137,23 +137,6 @@
             });
         }
 
-        function addMauza() {
-            let table = document.getElementById("dataTable");
-            let row = document.createElement("tr");
-            let newSrNo = table.children.length + 1;
-
-            row.innerHTML = `
-                <td>${newSrNo}</td>
-                <td><input type="text" placeholder="Enter new Mauza Name"></td>
-                <td><input type="text" placeholder="Patwari Name"></td>
-                <td><input type="text" placeholder="Partitionable"></td>
-                <td><textarea rows="3" cols="40" placeholder="Reason"></textarea></td>
-                <td><button type="button" onclick="editRow(this)">Edit</button></td>
-                <td><button type="button" onclick="saveRow(this)">Save</button></td>
-            `;
-            table.appendChild(row);
-        }
-
         window.onload = loadData;
     </script>
 </head>
@@ -161,7 +144,6 @@
     <h2>Pulse Data</h2>
 
     <input type="text" id="searchBox" onkeyup="filterTable()" placeholder="Search Mauza Name...">
-    <button onclick="addMauza()">Add More Mauza Name</button>
 
     <table border="1">
         <thead>
